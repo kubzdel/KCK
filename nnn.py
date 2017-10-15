@@ -29,11 +29,6 @@ def main():
                     sum += float(cell)
                     rselLast.append(100*float(cell));
             rselData.append(100 * sum / len(row))
-        print(rselData)
-        # del rselLast[:2]
-        # map(float,rselLast)
-        print(effort)
-        print(rselLast)
 
     with open('cel.csv', newline='') as csvfile:
         cel = csv.reader(csvfile, delimiter=',')
@@ -95,13 +90,13 @@ def main():
             markersize=10)
     ax.plot(effort, celrsData, label='1-Coev-RS', color='g', marker='v', markeredgecolor='black', markevery=25,
             markersize=10)
-    ax.plot(effort, twoCelrsData, label='2_coev-RS', color='r', marker='D', markeredgecolor='black', markevery=25,
+    ax.plot(effort, twoCelrsData, label='2_Coev-RS', color='r', marker='D', markeredgecolor='black', markevery=25,
             markersize=10)
     ax.plot(effort, celData, label='1-Coev', color='black', marker='s', markeredgecolor='black', markevery=25,
             markersize=10)
-    ax.plot(effort, twoCelData, label='2-Coev', color='m', marker='d', markeredgecolor='black', markevery=25,
+    ax.plot(effort, twoCelData, label='2-Coev', color='purple', marker='d', markeredgecolor='black', markevery=25,
             markersize=10)
-    ax.legend(bbox_to_anchor=(0.95, 0.15), numpoints=2)
+    ax.legend(bbox_to_anchor=(0.90, 0.2), numpoints=2)
     ax.set_xlim(0, 500)
     ax.set_ylim(60, 100)
     ax.yaxis.grid(linestyle='--')  #
@@ -115,6 +110,7 @@ def main():
     ax.tick_params(axis='x', labelsize=15)
     ax.tick_params(axis='y', labelsize=15)
     ax1.set_xticks([0, 40, 80, 120, 160, 200])
+    ax1.set_xlabel('Pokolenie')
 
 #boxplot
 
@@ -124,7 +120,7 @@ def main():
 
     fliersP = dict(markersize=15, linewidth=5, markeredgecolor='b', markerfacecolor='b')
     meanpointsP = dict(marker='o', markeredgecolor='black',markeredgewidth='2', markerfacecolor='b',markersize=10)
-    whiskersP = dict(linestyle='--', dashes=(5, 5), linewidth=2, color='g')
+    whiskersP = dict(linestyle='--', dashes=(5, 5), linewidth=2, color='b')
     medianP = dict(linestyle='-', linewidth=2.5, color='red')
     boxP = dict(linewidth=2.5,color='b')
     boxplot.boxplot(data,1,'b+',boxprops=boxP,whiskerprops=whiskersP,flierprops=fliersP,meanprops=meanpointsP,medianprops=medianP,vert=True,
@@ -138,23 +134,6 @@ def main():
     boxplot.tick_params(axis='x', labelsize=15)
     boxplot.tick_params(axis='y', labelsize=15)
     boxplot.yaxis.tick_right()
-
-
-
-
-
-
-
-
-
-
-
-
     plt.show()
-
-    ax1.set_xlabel('Pokolenie')
-    ax1.set_xticklabels([0, 40, 120, 160, 200])
-    plt.show()
-
 
 main()
